@@ -1,4 +1,5 @@
 const myLibrary = [];
+const dialog = document.getElementById('okno');
 
 
 function Book(title, author, pages, isRead) {
@@ -45,12 +46,17 @@ function getInpValues(){
   const pages = document.getElementById('pages').value;
   const isRead = document.querySelector('input[name=readOrNo]:checked').value === 'true';
 
-  addBookToLibrary(title,author,pages,isRead);
-
+  addBookToLibrary(title, author, pages, isRead);
   displayBooks();
+  dialog.close(); // ← закрываем после добавления
 }
 document.getElementById('bookForm').addEventListener('submit',(e)=>{
   e.preventDefault();
 
-  console.log(getInpValues());
+ getInpValues();
 })
+
+
+document.getElementById('openDialog').addEventListener('click', () => {
+  dialog.showModal();
+});
