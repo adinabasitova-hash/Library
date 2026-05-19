@@ -8,8 +8,38 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button>Add New Book!</button>
   <div id="library"></div>
+  
+  <form id="bookForm">
+    <label for="title"></label>
+    <input id="title" placeholder="title" name="b_title" required>
+
+    <label for="author"></label>
+    <input id="author" placeholder="author" name="b_author" required>
+
+    <label for="pages"></label>
+    <input id="pages" placeholder="pages f.e. 289" name="b_pages" required>
+
+    <label for="readOrNo"></label>
+    <fieldset>
+      <legend>Have you read it?</legend>
+      <p>
+      <input id="readYes" type="radio" name="readOrNo" value="true" required>
+      <label for="readYes">Yes</label>
+    </p>
+    <p>
+      <input type="radio" id="readNo" name="readOrNo" value="false" />
+      <label for="readNo">No</label>
+    </p>
+    <p>
+    </fieldset>
+
+     <button type="submit">Add New Book!</button>
+    
+ </form>
+
+
+ 
 <script src="lib.js"></script>
 </body>
 </html>
