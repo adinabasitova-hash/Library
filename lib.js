@@ -34,6 +34,7 @@ function displayBooks(){
     <h4>${book.author}</h4>
     <p>Pages: ${book.pages}</p>
     <p>Read: ${book.isRead ? "Yep!" : 'Not yet' }</p>
+    <button class="remove">-</button>
       `
        container.appendChild(card);
        console.log(book);
@@ -61,3 +62,20 @@ document.getElementById('bookForm').addEventListener('submit',(e)=>{
 document.getElementById('openDialog').addEventListener('click', () => {
   dialog.showModal();
 });
+
+document.getElementById('library').addEventListener('click', (e)=>{
+  if(e.target.classList.contains('remove')){
+    const card = e.target.closest('.one_b');
+    const id = card.dataset.id;
+
+    const index = myLibrary.findIndex(book => book.id === id);
+    myLibrary.splice(index,1);
+
+    displayBooks();
+  }
+})
+
+const closeB = document.querySelector('.close');
+closeB.addEventListener('click', ()=>{
+  dialog.close();
+})
