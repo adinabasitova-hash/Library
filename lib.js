@@ -27,6 +27,7 @@ function displayBooks(){
 
   myLibrary.forEach(book=>{
     const card = document.createElement("div");
+    card.classList.add('one_b');
     card.dataset.id = book.id;
     card.innerHTML = `
     <h3>${book.title}</h3>
